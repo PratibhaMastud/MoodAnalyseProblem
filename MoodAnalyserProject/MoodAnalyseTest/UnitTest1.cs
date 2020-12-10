@@ -67,5 +67,26 @@ namespace MoodAnalyseTest
             //Assert
             Assert.AreEqual(Expected, result);
         }
+
+        /// <summary>
+        /// This Test call ensure when given empty message will throw an exception
+        /// </summary>
+        [TestMethod]
+        [DataRow("")]
+        public void GivenEmptyMessage_WhenEmpty_ShouldThrowException(string message)
+        {
+            try
+            {
+                //Arrange
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                //Act
+                string result = moodAnalyser.AnalyseMood();
+                //Assert
+            }
+            catch (MoodAnalyserException e)
+            {
+                Assert.AreEqual("Mood should not be empty", e.Message);
+            }
+        }
     }
 }
