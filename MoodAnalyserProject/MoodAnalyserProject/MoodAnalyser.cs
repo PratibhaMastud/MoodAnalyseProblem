@@ -4,20 +4,44 @@ namespace MoodAnalyserProject
 {
     public class MoodAnalyser
     {
+        public string message;
+        public MoodAnalyser()
+        {
+        }
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Mood Analyser");
+
         }
-        public string analyseMood(string mood)
+        public string AnalyseMood()
         {
-            if (mood.Equals("Happy"))
+            try
             {
-                return "HAPPY";
+                if (this.message.Contains("Sad"))
+                {
+                    return "SAD";
+                }
+                else if (this.message.Contains("Happy"))
+                {
+                    return "HAPPY";
+                }
+                else if (this.message.Contains("Any"))
+                {
+                    return "HAPPY";
+                }
+                else
+                {
+                    return "Happy";
+                }
             }
-            else
+            catch
             {
-                return "SAD";
+                return "Happy";
             }
         }
     }
 }
+        
