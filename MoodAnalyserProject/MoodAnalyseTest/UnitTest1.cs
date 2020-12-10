@@ -90,13 +90,23 @@ namespace MoodAnalyseTest
         }
 
         /// <summary>
-        /// UC4 Expected to return the MoodAnalyser Object by creating object using MoodAnalyserFactory
+        /// UC4 Expected to return the MoodAnalyser Object by creating object using MoodAnalyser Factory with default Constructor
         /// </summary>
         [TestMethod]
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyserObject()
         {
             object expected = new MoodAnalyser();
             object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyserProject.MoodAnalyser", "MoodAnalyser");
+            expected.Equals(obj);
+        }
+        /// <summary>
+        /// UC5 Expected to return the MoodAnalyser Object by creating object using Parameterized Constructor
+        /// </summary>
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyserObject_UsingParameterizdConstructor()
+        {
+            object expected = new MoodAnalyser("HAPPY");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterizedConstructor("MoodAnalyserProject.MoodAnalyser", "MoodAnalyser", "HAPPY");
             expected.Equals(obj);
         }
     }
