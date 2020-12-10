@@ -99,6 +99,7 @@ namespace MoodAnalyseTest
             object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyserProject.MoodAnalyser", "MoodAnalyser");
             expected.Equals(obj);
         }
+
         /// <summary>
         /// UC5 Expected to return the MoodAnalyser Object by creating object using Parameterized Constructor
         /// </summary>
@@ -108,6 +109,17 @@ namespace MoodAnalyseTest
             object expected = new MoodAnalyser("HAPPY");
             object obj = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterizedConstructor("MoodAnalyserProject.MoodAnalyser", "MoodAnalyser", "HAPPY");
             expected.Equals(obj);
+        }
+
+        /// <summary>
+        /// UC6 Given Happy Should Return Happy.
+        /// </summary>
+        [TestMethod]
+        public void GiveHappyMoodShouldReturnHappy()
+        {
+            string expected = "HAPPY";
+            string mood = MoodAnalyserFactory.InvokeAnalyseMood("Happy", "AnalyseMood");
+            Assert.AreEqual(expected, mood);
         }
     }
 }
